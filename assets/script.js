@@ -5,36 +5,38 @@
     var timerCount ;
     var timer ;
     var timerElement = document.querySelector(".timer-count");
+    var currentQ = 0;
 
-    var quizQ =[
+    let quizQ =
         {
-        question:("Who created LOTR?"),
+        question:"Who created LOTR?",
         choices:["GRR Martin", "The Elders","JRR Tolkien"],
-        answer:("JRR Tolkien"),
-        },{
-        question:("Who won the Ring of Power in a game of riddles?"),
-        choices:["Frodo", "Bilbo","Gollum"],
-        answer:("Bilbo"),
-        },{
-        question:("What is Striders real name?"),
-        choices:["Aragorn","Legolas","Elrond"],
-        answer:("Aragorn"),
-        },{
-        question:("Who is Sauron?"),
-        choices:["The White Wizard","The Dark Lord, Ruler of Mordor", "The Black Wizard"],
-        answer:("The Dark Lord, Ruler of Mordor"),
-        },{
-        question:("What was the name of the dragon from The Hobbit?"),
-        choices:["Smaug","Balrog","Sauroman"],
-        answer:("Smaug"),
-        }
-    ]
+        answer:2,
+        };//,{
+        // question: "Who won the Ring of Power in a game of riddles?",
+        // choices:["Frodo", "Bilbo","Gollum"],
+        // answer:("Bilbo"),
+        // },{
+        // question:("What is Striders real name?"),
+        // choices:["Aragorn","Legolas","Elrond"],
+        // answer:("Aragorn"),
+        // },{
+        // question:("Who is Sauron?"),
+        // choices:["The White Wizard","The Dark Lord, Ruler of Mordor", "The Black Wizard"],
+        // answer:("The Dark Lord, Ruler of Mordor"),
+        // },{
+        // question:("What was the name of the dragon from The Hobbit?"),
+        // choices:["Smaug","Balrog","Sauroman"],
+        // answer:("Smaug"),
+        // };
+    
     function startQuiz() {
+      startButton.addEventListener("click");
             wins = false;
             timerCount = 20;
             startButton.disabled = true;
             startTimer();
-            displayQuestion();
+            displayQuestion(question);
     };
 
     function startTimer() {
@@ -54,11 +56,20 @@
         }, 1000);
       };
 function displayQuestion(){
-    startButton.addEventListener('click')
-    showQuestion = quizQ.question[Math.floor(Math.random() * quizQ.question.length)];
-    document.append(showQuestion);
     
+    //showQuestion = quizQ[currentQ];
+    //document.append(showQuestion);
+    let showQuestion = document.getElementById('question');
+    showQuestion.textContent = quizQ.question;
+
+    let displayChoices = document.querySelectorAll('.choices');
+  console.log(displayChoices);
+  displayChoices.forEach(function(element, index){
+    element.textContent = quizQ.choices[index];
+  });
 }
+
+//startButton.addEventListener('click')
         // Object that conatins {question: string, Choices: array, answer: string}
         // Display question - loop
         //  append question

@@ -1,45 +1,46 @@
-// User is presented with 5 questions - array of objects
-    //  Format for questions???
-    var startButton = document.querySelector(".start-button");
-    var wins = false;
-    var timerCount ;
-    var timer ;
-    var timerElement = document.querySelector(".timer-count");
-    var currentQ = 0;
+var startButton = document.querySelector(".start-button");
+var wins = false;
+var timerCount ;
+var timer ;
+var timerElement = document.querySelector(".timer-count");
+var currentQ = 0;
+var highScores = document.querySelector("high-scores-list");
 
-    let quizQ =
+    //highScores.setAttribute("src", "./assets/scores.html");
+//highscores wont link to extra html
+let quizQ =[
         {
         question:"Who created LOTR?",
         choices:["GRR Martin", "The Elders","JRR Tolkien"],
         answer:2,
-        };//,{
-        // question: "Who won the Ring of Power in a game of riddles?",
-        // choices:["Frodo", "Bilbo","Gollum"],
-        // answer:("Bilbo"),
-        // },{
-        // question:("What is Striders real name?"),
-        // choices:["Aragorn","Legolas","Elrond"],
-        // answer:("Aragorn"),
-        // },{
-        // question:("Who is Sauron?"),
-        // choices:["The White Wizard","The Dark Lord, Ruler of Mordor", "The Black Wizard"],
-        // answer:("The Dark Lord, Ruler of Mordor"),
-        // },{
-        // question:("What was the name of the dragon from The Hobbit?"),
-        // choices:["Smaug","Balrog","Sauroman"],
-        // answer:("Smaug"),
-        // };
+        },{
+        question: "Who won the Ring of Power in a game of riddles?",
+        choices:["Frodo", "Bilbo","Gollum"],
+        answer:("Bilbo"),
+        },{
+        question:("What is Striders real name?"),
+        choices:["Aragorn","Legolas","Elrond"],
+        answer:("Aragorn"),
+        },{
+        question:("Who is Sauron?"),
+        choices:["The White Wizard","The Dark Lord, Ruler of Mordor", "The Black Wizard"],
+        answer:("The Dark Lord, Ruler of Mordor"),
+        },{
+        question:("What was the name of the dragon from The Hobbit?"),
+        choices:["Smaug","Balrog","Sauroman"],
+        answer:("Smaug"),
+        }
+      ];
     
-    function startQuiz() {
-      startButton.addEventListener("click");
-            wins = false;
+startButton.addEventListener("click",function() {
             timerCount = 20;
             startButton.disabled = true;
-            startTimer();
-            displayQuestion(question);
-    };
+            startTimer();  
+            document.body.appendChild(displayQuestion()); 
+              
+    });
 
-    function startTimer() {
+function startTimer() {
         timer = setInterval(function() {
           timerCount--;
           timerElement.textContent = timerCount;
@@ -55,6 +56,7 @@
           }
         }, 1000);
       };
+      //NaN - doesnt work
 function displayQuestion(){
     
     //showQuestion = quizQ[currentQ];
@@ -63,12 +65,28 @@ function displayQuestion(){
     showQuestion.textContent = quizQ.question;
 
     let displayChoices = document.querySelectorAll('.choices');
-  console.log(displayChoices);
-  displayChoices.forEach(function(element, index){
-    element.textContent = quizQ.choices[index];
-  });
+    console.log(displayChoices);
+    displayChoices.forEach(function(element, index){
+    element.textContent = quizQ.choices[index];//something happening here
+  }
+    //for (var i = 0; i < quizQ.length; i++) {
+      //add loop for displayQ
+     //}
+     //if statement-add 5 score right answer, add 15 timer for wrong answer
+     //display nextQ either way with button
+     //once loop is done, go to highscores page
+  );
 }
+//wont attach to start button? most likely problem with start button
+// displayQuestion(question);
 
+
+
+//create var to contain each high score
+//store score to local storage
+//prompt user to input initials
+//getItem.localstorage(newScore);
+//document.append(newScore); //initials and score in order from highest to lowest
 //startButton.addEventListener('click')
         // Object that conatins {question: string, Choices: array, answer: string}
         // Display question - loop

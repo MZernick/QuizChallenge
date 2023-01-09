@@ -5,14 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Challenge</title>
+  <link rel="stylesheet" href="./assets/style.css"/>
 </head>
 
 <body>
-    <section>
+  <header>
+    <button class="high-scores-list"><a href="./scores.html"></a> High Scores</button>
         <h1 style="text-align:center;">LOTR Quiz Challenge </h1>
-        <button class="start-button">Start Quiz</button>
-        <button><a href="./scores.html"></a> High Scores</button>
-    </section>
+        <div>
+          <div class="large-font timer-count">20</div>
+          <h3>seconds remaining</h3>
+        </div>
+  </header> 
+    <section class="quiz">
+    <button class="start-button">Start Quiz</button>
     <div id="question"></div>
       <ul>
          <li class="choices"></li>
@@ -20,10 +26,7 @@
          <li class="choices"></li>
          <li class="choices"></li>
       </ul>
-    <div>
-        <div class="large-font timer-count">20</div>
-        <h3>seconds remaining</h3>
-    </div>
+    </section>
   <script src= "./assets/script.js"></script>
 </body>
 

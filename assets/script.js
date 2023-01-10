@@ -6,7 +6,8 @@ var timerElement = document.querySelector(".timer-count");
 var currentScore = 0;
 var allChoices = document.querySelector("#choices");
 var questionIndex = 0;
-var highScores = "./assets/scores.html";
+var showScores = document.querySelector(".scores");
+var showInitials = document.querySelector(".initials");
 
 let quizQ = [
   {
@@ -78,29 +79,20 @@ choices.addEventListener("click",function(event){
     timerCount = timerCount + 15;
   }
   questionIndex ++;
-  // if(questionIndex.length <=5){
   displayQuestion();
-  // }
-  // else{
-  //   var initials = window.prompt("Please enter your initials:");
-  //   window.location.assign("./assets/scores.html");
-  //   localStorage.setItem(initials);
-  // }
+  localStorage.setItem("scores", currentScore);
+  // if (questionIndex = 4){
+  //     var initials = window.prompt("Please enter your initials:");
+  //     window.location.assign("./assets/scores.html");
+  //     localStorage.setItem("initials", initials); 
+  // };
 });
+function viewHighScores() {
+  var endScore = localStorage.getItem("scores");
+  var userInitials = localStorage.getItem("initials");
+  
+  // showScores.textContent = endScore;
+  // showInitials.textContent = userInitials;
+};
+viewHighScores();
 
-var scores = document.querySelector(".scores");
-var scores = (currentScore + localStorage.getItem(initials));
-
-  //  click event is on the parent container
-  //  how to know which element was clicked(event.target)
-
-//var highScores = currentScore;((setItem.localstorage(highScores)))
-
- 
-
-     //once loop is done, go to highscores page
-
-//store score to local storage
-//prompt user to input initials
-//getItem.localstorage(newScore);
-//document.append(newScore); //initials and score in order from highest to lowest

@@ -1,13 +1,10 @@
 var startButton = document.querySelector(".start-button");
-var wins = false;
-var timerCount;
-var timer;
 var timerElement = document.querySelector(".timer-count");
 var currentScore = 0;
 var allChoices = document.querySelector("#choices");
 var questionIndex = 0;
-var showScores = document.querySelector(".scores");
-var showInitials = document.querySelector(".initials");
+var showScores = document.querySelector("#score");
+var showInitials = document.querySelector("#initials");
 
 let quizQ = [
   {
@@ -34,7 +31,7 @@ let quizQ = [
 ];
 
 startButton.addEventListener("click", function () {
-  timerCount = 20;
+  timerCount = 30;
   startButton.disabled = true;
   startTimer();
   displayQuestion();
@@ -44,17 +41,16 @@ function startTimer() {
   timer = setInterval(function () {
     timerCount--;
     timerElement.textContent = timerCount;
-    if (timerCount >= 0) {
-      if (wins && timerCount > 0) {
-        clearInterval(timer);
-      }
-    }
-    if (timerCount === 0) {
-      clearInterval(timer);
-
-    }
+    
+    if (timerCount <= 0) {
+       clearInterval(timer);
+       var initials = window.prompt("Please enter your initials:");
+       localStorage.setItem("initials", initials);
+       window.location.assign("./assets/scores.html");
+     }
   }, 1000);
 };
+
 function displayQuestion() {
   let showQuestion = document.getElementById('question');
   let displayChoices = document.querySelectorAll('.choice');
@@ -62,37 +58,45 @@ function displayQuestion() {
     showQuestion.textContent = quizQ[questionIndex].question;
     displayChoices.forEach((element, index) => {
       element.textContent = quizQ[questionIndex].choices[index]; 
-    }
-    )};
-  // user selects an answer(button,radio,checkboxes)data-answer = ""
+    });
+    };
+
 choices.addEventListener("click",function(event){
   if (!event.target.matches("li")){
     return;
   } 
   var question = quizQ[questionIndex];
   var correctChoice = question.choices[question.answer];
-  console.log(correctChoice);
+  // console.log(correctChoice);
   if (event.target.textContent === correctChoice) {
     currentScore = currentScore + 5;
   }
   else {
-    timerCount = timerCount + 15;
+    timerCount = timerCount -10;
   }
   questionIndex ++;
   displayQuestion();
+  // console.log(quizQ);
   localStorage.setItem("scores", currentScore);
-  // if (questionIndex = 4){
+  // if (quizQ.answer = "end answer" ){ //doesnt work.. should this be put somewhere else?
   //     var initials = window.prompt("Please enter your initials:");
   //     window.location.assign("./assets/scores.html");
   //     localStorage.setItem("initials", initials); 
   // };
 });
+
 function viewHighScores() {
+  
   var endScore = localStorage.getItem("scores");
   var userInitials = localStorage.getItem("initials");
   
   // showScores.textContent = endScore;
   // showInitials.textContent = userInitials;
-};
-viewHighScores();
 
+  console.log(endScore);
+  console.log(userInitials);
+  console.log(showScores);
+  console.log(showInitials);
+};
+
+viewHighScores();

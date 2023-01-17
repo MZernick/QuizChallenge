@@ -3,8 +3,7 @@ var timerElement = document.querySelector(".timer-count");
 var currentScore = 0;
 var allChoices = document.querySelector("#choices");
 var questionIndex = 0;
-var showScores = document.querySelector("#score");
-var showInitials = document.querySelector("#initials");
+
 
 let quizQ = [
   {
@@ -90,8 +89,8 @@ function viewHighScores() {
   var endScore = localStorage.getItem("scores");
   var userInitials = localStorage.getItem("initials");
   
-  // showScores.textContent = endScore;
-  // showInitials.textContent = userInitials;
+  showScores.textContent = endScore;
+  showInitials.textContent = userInitials;
 
   console.log(endScore);
   console.log(userInitials);

@@ -3,7 +3,9 @@ var timerElement = document.querySelector(".timer-count");
 var currentScore = 0;
 var allChoices = document.querySelector("#choices");
 var questionIndex = 0;
+var hideQuestions = document.querySelector(".quiz-section");
 
+hideQuestions.style.display = "none";
 
 let quizQ = [
   {
@@ -30,6 +32,7 @@ let quizQ = [
 ];
 
 startButton.addEventListener("click", function () {
+  hideQuestions.style.display = "block";
   timerCount = 30;
   startButton.disabled = true;
   startTimer();

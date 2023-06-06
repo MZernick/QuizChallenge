@@ -3,7 +3,12 @@ header {
     flex-direction: row;
     justify-content: space-between;
 }
-.quiz{
+
+.quiz {
     display: flex;
     justify-content: center;
+}
+
+:root {
+    background-image: url(LOTR.jpg);
 }

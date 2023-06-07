@@ -1,3 +1,22 @@
+:root {
+    --darkgreen: #364620;
+    --blue: #53B3CB;
+    --pale: #CEB7B6;
+    --purple: #615055;
+    --green: #6BA292;
+    font-family: 'Papyrus';
+}
+
+#heading {
+    display: flex;
+    color: var(--darkgreen);
+    font-size: 5rem;
+    background-color: #bcb3b647;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -9,6 +28,94 @@ header {
     justify-content: center;
 }
 
-:root {
+body {
+    margin: 0px;
     background-image: url(LOTR.jpg);
+}
+
+.scorebtn {
+    margin: 8px;
+    background-color: var(--darkgreen);
+    border: none;
+    text-decoration: none;
+    height: 5rem;
+    border-radius: 25%;
+}
+
+.btnfont {
+    font-family: 'Papyrus';
+    color: var(--pale);
+    text-decoration: none;
+}
+
+.timerFont {
+    color: var(--green);
+    margin: 3%;
+}
+
+.timer-count {
+    font-size: 8rem;
+}
+
+.start-button {
+    background-color: var(--darkgreen);
+    color: var(--pale);
+    border: none;
+    border-radius: 25%;
+    width: 10rem;
+    height: 10rem;
+    font-size: 2rem;
+    font-family: 'Papyrus';
+}
+
+#question {
+    color: var(--green);
+    margin: 3%;
+    font-size: 4rem;
+    background-color: #3646209c;
+    border-radius: 25%;
+    text-align: center;
+}
+
+.answers {
+    background-color: var(--pale);
+    color: var(--darkgreen);
+    border: none;
+    border-radius: 25%;
+    width: 10rem;
+    height: 10rem;
+    font-size: 2rem;
+    font-family: 'Papyrus';
+    margin: 2%;
+}
+
+#initials {
+    font-size: 2rem;
+    color: var(--green);
+}
+
+.score-box {
+    display: flex;
+    font-size: 2rem;
+    color: var(--green);
+    justify-content: center;
+    background-color: #36462098;
+}
+
+.initials {
+    padding: 2%;
+}
+
+.score {
+    padding: 2%;
+}
+
+.quiz-section {
+    display: flex;
+}
+
+#choices {
+    display: flex;
+    align-items: center;
+    margin: 2%;
 }

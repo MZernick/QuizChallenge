@@ -10,12 +10,12 @@
 
 <body>
   <header>
-    <button><a href="./assets/scores.html">
-        <h3> High Scores</h3>
+    <button class="scorebtn"><a href="./assets/scores.html">
+        <h3 class="btnfont"> High Scores</h3>
       </a></button>
-    <h1 style="text-align:center;">LOTR Quiz Challenge </h1>
-    <div>
-      <div class="large-font timer-count">30</div>
+    <h1 id="heading" style="text-align:center;">LOTR Quiz Challenge </h1>
+    <div class="timerFont">
+      <div class="timer-count">30</div>
       <h3>seconds remaining</h3>
     </div>
   </header>
@@ -24,9 +24,15 @@
     <section class="quiz-section">
       <div id="question"></div>
       <ul id="choices">
-        <button><li class="choice"></li></button>
-        <button><li class="choice"></li></button>
-        <button><li class="choice"></li></button>
+        <button class="answers">
+          <li class="choice"></li>
+        </button>
+        <button class="answers">
+          <li class="choice"></li>
+        </button>
+        <button class="answers">
+          <li class="choice"></li>
+        </button>
       </ul>
     </section>
   </main>

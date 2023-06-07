@@ -35,6 +35,7 @@ startButton.addEventListener("click", function () {
   hideQuestions.style.display = "block";
   timerCount = 30;
   startButton.disabled = true;
+  startButton.style.display = "none";
   startTimer();
   displayQuestion();
 });
@@ -43,13 +44,13 @@ function startTimer() {
   timer = setInterval(function () {
     timerCount--;
     timerElement.textContent = timerCount;
-    
+
     if (timerCount <= 0) {
-       clearInterval(timer);
-       var initials = window.prompt("Please enter your initials:");
-       localStorage.setItem("initials", initials);
-       window.location.assign("./assets/scores.html");
-     }
+      clearInterval(timer);
+      var initials = window.prompt("Please enter your initials:");
+      localStorage.setItem("initials", initials);
+      window.location.assign("./assets/scores.html");
+    }
   }, 1000);
 };
 
@@ -57,16 +58,16 @@ function displayQuestion() {
   let showQuestion = document.getElementById('question');
   let displayChoices = document.querySelectorAll('.choice');
 
-    showQuestion.textContent = quizQ[questionIndex].question;
-    displayChoices.forEach((element, index) => {
-      element.textContent = quizQ[questionIndex].choices[index]; 
-    });
-    };
+  showQuestion.textContent = quizQ[questionIndex].question;
+  displayChoices.forEach((element, index) => {
+    element.textContent = quizQ[questionIndex].choices[index];
+  });
+};
 
-choices.addEventListener("click",function(event){
-  if (!event.target.matches("li")){
+choices.addEventListener("click", function (event) {
+  if (!event.target.matches("li")) {
     return;
-  } 
+  }
   var question = quizQ[questionIndex];
   var correctChoice = question.choices[question.answer];
   // console.log(correctChoice);
@@ -74,9 +75,9 @@ choices.addEventListener("click",function(event){
     currentScore = currentScore + 5;
   }
   else {
-    timerCount = timerCount -10;
+    timerCount = timerCount - 10;
   }
-  questionIndex ++;
+  questionIndex++;
   displayQuestion();
   // console.log(quizQ);
   localStorage.setItem("scores", currentScore);
@@ -88,10 +89,10 @@ choices.addEventListener("click",function(event){
 });
 
 function viewHighScores() {
-  
+
   var endScore = localStorage.getItem("scores");
   var userInitials = localStorage.getItem("initials");
-  
+
   showScores.textContent = endScore;
   showInitials.textContent = userInitials;
 

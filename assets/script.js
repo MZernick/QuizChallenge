@@ -86,6 +86,14 @@ choices.addEventListener("click", function (event) {
   //     window.location.assign("./assets/scores.html");
   //     localStorage.setItem("initials", initials); 
   // };
+  if (questionIndex >= quizQ.length) {
+    clearInterval(timer);
+    var initials = window.prompt("Please enter your initials:");
+    localStorage.setItem("initials", initials);
+    window.location.assign("./assets/scores.html");
+  } else {
+    displayQuestion();  // only call this if questions remain
+  }
 });
 
 function viewHighScores() {

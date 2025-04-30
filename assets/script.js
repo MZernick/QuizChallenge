@@ -48,7 +48,15 @@ function startTimer() {
     if (timerCount <= 0) {
       clearInterval(timer);
       var initials = window.prompt("Please enter your initials:");
-      localStorage.setItem("initials", initials);
+      // localStorage.setItem("initials", initials);
+      let allScores =JSON.parse(localstorage.getItem("highScores")) || [];
+
+      let newScore ={
+        initials: initials,
+        score: currentScore
+      };
+      allScores.push(newScore);
+      localStorage.setItem("highScores", JSON.stringify(allScores));
       window.location.assign("./assets/scores.html");
     }
   }, 1000);
